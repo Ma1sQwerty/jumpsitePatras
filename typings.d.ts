@@ -15,8 +15,9 @@ export interface Post {
     body: [object];
 }
 
-export interface Contact {
-    name: string;
-    email: string;
-    message: string;
+export interface Tshirt {
+    title: string;
+    slug: string;
+    image: string;
+    price: number;
 }

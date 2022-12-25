@@ -9,7 +9,7 @@ import blockContent from './blockContent'
 import post from './post'
 import author from './author'
 import messages from './messages'
-import photos from './photos'
+import tshirt from './tshirt'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -23,6 +23,7 @@ export default createSchema({
     post,
     author,
     messages,
+    tshirt,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,

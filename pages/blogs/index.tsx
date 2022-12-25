@@ -1,6 +1,6 @@
 
 import Navbar from '../../components/Navbar';
-import { config, urlFor } from '../../sanity'
+import { config, urlFor } from '../../sanity';
 import Footer from '../../components/Footer';
 import Link from 'next/link';
 

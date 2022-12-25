@@ -7,6 +7,7 @@ import Members from '../components/Members'
 import Navbar from '../components/Navbar'
 import Purpose from '../components/Purpose'
 import RecentProjects from '../components/RecentProjects'
+import Tshirts from '../components/Tshirts'
 import { config } from '../sanity'
 import { Post } from '../typings'
 
@@ -14,12 +15,13 @@ interface Props {
   posts: [Post]
 }
 
-function Home ({ posts }: Props) {
+function Home ({ posts, tshirts }: any) {
   return (
     <div className="bg-gradient-to-tr from-slate-700 via-slate-800 to-neutral-800 mx-auto">
       <Navbar />
       <LaunchPage />
       <RecentProjects props={posts.slice(0,2)} />
+      <Tshirts props={tshirts} />
       <About />
       <Purpose />
       <Members />
@@ -44,9 +46,20 @@ export const getServerSideProps = async () => {
 
   const posts = await config.fetch(query)
 
+  const query2 = `*[ _type == "tshirt"]{
+    _id,
+    title,
+    image,
+    slug,
+    price
+  }`
+
+  const tshirts = await config.fetch(query2)
+
   return {
     props: {
       posts,
+      tshirts
     }
   }
 }
